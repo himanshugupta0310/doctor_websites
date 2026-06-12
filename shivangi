@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Shivangi Sharma — Fertility & Reproductive Medicine Specialist, Bangalore</title>
+<meta name="description" content="Dr. Shivangi Sharma — Board-certified Fertility Specialist (FNB), Bangalore. MBBS, MS, DNB (Obstetrics & Gynaecology), FNB Reproductive Medicine. IVF, ICSI, FET and evidence-based fertility care.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3a2f44;
+    --ink-soft:#6c627a;
+    --paper:#fffdfb;
+    --lilac:#e9defc;
+    --lilac-deep:#9b7fd4;
+    --blush:#ffe1ec;
+    --blush-deep:#f4a8c6;
+    --mint:#d6f3e8;
+    --mint-deep:#5fc6a3;
+    --sky:#d9ecff;
+    --sky-deep:#7bb8f0;
+    --butter:#fff2cc;
+    --plum:#6d4d8f;
+    --line:#efe7f3;
+    --maxw:1160px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.08;letter-spacing:-.01em}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  a{color:inherit}
+  .eyebrow{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--lilac-deep);font-weight:600}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,253,251,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600}
+  .brand span{color:var(--blush-deep)}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{font-size:.9rem;color:var(--ink-soft);text-decoration:none;transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{background:linear-gradient(120deg,var(--blush-deep),var(--lilac-deep));color:#fff;padding:11px 22px;border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 18px -8px rgba(155,127,212,.7)}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 10px 24px -8px rgba(155,127,212,.8)}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;padding:80px 0 76px;
+    background:
+      radial-gradient(60% 70% at 88% 8%, var(--blush) 0%, transparent 55%),
+      radial-gradient(55% 65% at 6% 90%, var(--mint) 0%, transparent 55%),
+      radial-gradient(50% 60% at 50% 50%, var(--lilac) 0%, transparent 70%),
+      var(--paper);
+  }
+  .blob{position:absolute;border-radius:50%;filter:blur(8px);opacity:.5;z-index:0}
+  .blob.b1{width:240px;height:240px;background:var(--sky);top:-60px;right:18%}
+  .blob.b2{width:180px;height:180px;background:var(--butter);bottom:-40px;left:30%}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .92fr;gap:60px;align-items:center}
+  .hero h1{font-size:clamp(2.6rem,5.4vw,4.3rem);margin:22px 0 0}
+  .hero h1 em{font-style:italic;color:var(--lilac-deep)}
+  .hero .lede{font-size:1.12rem;color:var(--ink-soft);max-width:38ch;margin-top:24px}
+  .hero-meta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .pill{border-radius:16px;padding:16px 20px;display:flex;flex-direction:column;min-width:120px}
+  .pill .num{font-family:'Fraunces',serif;font-size:1.55rem;line-height:1}
+  .pill .lbl{font-size:.76rem;margin-top:7px;opacity:.85}
+  .pill.p1{background:var(--blush)}.pill.p1 .num{color:var(--blush-deep)}
+  .pill.p2{background:var(--mint)}.pill.p2 .num{color:var(--mint-deep)}
+  .pill.p3{background:var(--sky)}.pill.p3 .num{color:var(--sky-deep)}
+  .hero-actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+  .btn{padding:14px 28px;border-radius:999px;font-size:.92rem;font-weight:600;text-decoration:none;display:inline-block;transition:all .2s}
+  .btn-primary{background:linear-gradient(120deg,var(--blush-deep),var(--lilac-deep));color:#fff;box-shadow:0 8px 22px -10px rgba(155,127,212,.8)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{border:1.5px solid var(--lilac-deep);color:var(--plum)}
+  .btn-ghost:hover{background:var(--lilac)}
+
+  /* portrait */
+  .portrait-wrap{position:relative;display:flex;justify-content:center}
+  .portrait-ring{position:absolute;inset:-6%;border-radius:50%;background:conic-gradient(from 120deg,var(--blush),var(--lilac),var(--sky),var(--mint),var(--butter),var(--blush));filter:blur(2px);opacity:.85}
+  .portrait{position:relative;width:100%;max-width:380px;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#fff;border:6px solid #fff;box-shadow:0 24px 60px -28px rgba(109,77,143,.55)}
+  .portrait img{width:100%;height:100%;object-fit:cover}
+  .badge-float{position:absolute;bottom:14px;right:0;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 14px 34px -16px rgba(109,77,143,.6);z-index:3}
+  .badge-float .bn{font-family:'Fraunces',serif;font-size:1rem;color:var(--plum)}
+  .badge-float .bs{font-size:.72rem;color:var(--ink-soft)}
+
+  /* CREDENTIAL SPINE */
+  .spine{background:linear-gradient(120deg,var(--plum),var(--lilac-deep))}
+  .spine .wrap{padding:54px 28px;color:#fff}
+  .spine-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+  .spine-head .eyebrow{color:#f0e6ff}
+  .spine-head p{color:#ece2fb;font-size:.95rem;max-width:40ch}
+  .creds{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .cred{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:20px}
+  .cred .deg{font-family:'Fraunces',serif;font-size:1.4rem;color:#fff}
+  .cred .desc{font-size:.83rem;color:#ece2fb;margin-top:6px}
+
+  section.block{padding:88px 0}
+  .sec-head{max-width:60ch;margin-bottom:46px}
+  .sec-head h2{font-size:clamp(2rem,3.6vw,2.9rem);margin-top:14px}
+  .sec-head p{color:var(--ink-soft);font-size:1.05rem;margin-top:16px}
+
+  /* ABOUT */
+  .about{background:linear-gradient(180deg,var(--paper),var(--lilac) 320%)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+  .about-body p{color:var(--ink-soft);margin-bottom:18px;font-size:1.02rem}
+  .about-body p strong{color:var(--plum);font-weight:600}
+  .path{position:relative;padding-left:30px;display:flex;flex-direction:column;gap:26px}
+  .path::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:3px;border-radius:3px;background:linear-gradient(var(--blush-deep),var(--lilac-deep),var(--mint-deep),var(--sky-deep))}
+  .path-item{position:relative}
+  .path-item::before{content:"";position:absolute;left:-30px;top:5px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--lilac-deep)}
+  .path-item .yr{font-size:.76rem;font-weight:600;letter-spacing:.08em;color:var(--blush-deep);text-transform:uppercase}
+  .path-item .role{font-family:'Fraunces',serif;font-size:1.16rem;margin-top:2px}
+  .path-item .org{color:var(--ink-soft);font-size:.92rem;margin-top:2px}
+
+  /* GENETICS */
+  .genetics{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--mint),var(--sky))}
+  .genetics::after{content:"";position:absolute;right:-100px;top:-100px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,var(--butter),transparent 65%);opacity:.7}
+  .genetics .wrap{position:relative;z-index:2}
+  .gen-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .gen-tag{display:inline-block;background:#fff;border-radius:999px;padding:7px 18px;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mint-deep);font-weight:600}
+  .gen-grid h2{font-size:clamp(2rem,3.4vw,2.8rem);margin:18px 0;color:var(--ink)}
+  .gen-grid h2 em{font-style:italic;color:var(--mint-deep)}
+  .gen-grid > div:first-child p{color:var(--ink-soft);font-size:1.04rem}
+  .gen-stages{display:grid;gap:14px}
+  .gen-stage{background:rgba(255,255,255,.7);border:1px solid #fff;border-radius:16px;padding:20px 22px;backdrop-filter:blur(4px)}
+  .gen-stage .badge{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+  .gen-stage:nth-child(1) .badge{color:var(--blush-deep)}
+  .gen-stage:nth-child(2) .badge{color:var(--lilac-deep)}
+  .gen-stage:nth-child(3) .badge{color:var(--sky-deep)}
+  .gen-stage .st{font-family:'Fraunces',serif;font-size:1.16rem;margin-top:4px}
+  .gen-stage .sd{font-size:.9rem;color:var(--ink-soft);margin-top:6px}
+
+  /* EXPERTISE */
+  .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .exp-card{border-radius:18px;padding:28px;transition:all .25s;border:1px solid transparent}
+  .exp-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(109,77,143,.5)}
+  .exp-card:nth-child(1){background:var(--blush)}
+  .exp-card:nth-child(2){background:var(--mint)}
+  .exp-card:nth-child(3){background:var(--sky)}
+  .exp-card:nth-child(4){background:var(--butter)}
+  .exp-card:nth-child(5){background:var(--lilac)}
+  .exp-card:nth-child(6){background:var(--blush)}
+  .exp-card .ic{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .exp-card .ic svg{width:23px;height:23px;stroke:var(--plum);fill:none;stroke-width:1.7}
+  .exp-card h3{font-size:1.16rem}
+  .exp-card p{color:var(--ink-soft);font-size:.92rem;margin-top:8px}
+
+  /* CARE / CONTACT */
+  .care{background:linear-gradient(135deg,var(--lilac),var(--blush))}
+  .care-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .care h2{font-size:clamp(2rem,3.6vw,2.9rem)}
+  .care h2 em{font-style:italic;color:var(--lilac-deep)}
+  .care p{color:var(--ink-soft);font-size:1.06rem;margin-top:18px;max-width:42ch}
+  .contact-card{background:#fff;border-radius:20px;padding:36px;box-shadow:0 24px 60px -30px rgba(109,77,143,.5)}
+  .contact-card h3{font-size:1.3rem;margin-bottom:18px}
+  .ci{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+  .ci:last-of-type{border-bottom:none}
+  .ci svg{width:20px;height:20px;stroke:var(--lilac-deep);fill:none;stroke-width:1.7;flex-shrink:0;margin-top:3px}
+  .ci .k{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--blush-deep)}
+  .ci .v{font-size:.98rem}
+  .ci .v a{text-decoration:none}
+  .contact-card .btn-primary{width:100%;text-align:center;margin-top:22px}
+
+  footer{background:var(--plum);color:#ece2fb;padding:48px 0 30px}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;align-items:flex-start}
+  .foot-brand{font-family:'Fraunces',serif;font-size:1.4rem;color:#fff}
+  .foot-brand span{color:var(--blush-deep)}
+  footer p{font-size:.88rem;max-width:38ch;margin-top:10px;color:#dcd0ef}
+  .foot-links{display:flex;flex-direction:column;gap:8px}
+  .foot-links a{font-size:.9rem;text-decoration:none;color:#ece2fb;transition:color .2s}
+  .foot-links a:hover{color:#fff}
+  .foot-bottom{margin-top:38px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.8rem;color:#c4b4dc}
+  .foot-bottom a{color:#fff;text-decoration:none}
+  .disclaim{font-size:.78rem;color:var(--ink-soft);text-align:center;padding:18px;background:var(--paper);border-top:1px solid var(--line)}
+
+  @media(max-width:880px){
+    .hero-grid,.about-grid,.gen-grid,.care-grid{grid-template-columns:1fr;gap:42px}
+    .creds{grid-template-columns:1fr 1fr}
+    .exp-grid{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:var(--paper);border-bottom:1px solid var(--line);padding:18px 28px;gap:18px}
+    .nav-toggle{display:block}
+    .portrait-wrap{order:-1}
+  }
+  @media(max-width:560px){.creds,.exp-grid{grid-template-columns:1fr}section.block{padding:60px 0}}
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#" class="brand">Dr. Shivangi <span>Sharma</span></a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="nl">
+      <a href="#about">About</a>
+      <a href="#genetics">Genetics</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#contact" class="nav-cta">Book a Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="blob b1"></span><span class="blob b2"></span>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Fertility &amp; Reproductive Medicine · Bangalore</span>
+      <h1>Helping couples move toward parenthood with <em>clarity and care</em>.</h1>
+      <p class="lede">Board-certified Fertility Specialist (FNB), helping individuals and couples with trusted fertility care.</p>
+      <div class="hero-meta">
+        <div class="pill p1"><span class="num">8+</span><span class="lbl">years in practice</span></div>
+        <div class="pill p2"><span class="num">FNB</span><span class="lbl">Reproductive Medicine</span></div>
+        <div class="pill p3"><span class="num">IVF·ICSI</span><span class="lbl">assisted reproduction</span></div>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+        <a href="#about" class="btn btn-ghost">Read Dr. Shivangi's story</a>
+      </div>
+    </div>
+    <div class="portrait-wrap">
+      <div class="portrait-ring"></div>
+      <div class="portrait"><img src="assets/shivangi.jpg" alt="Dr. Shivangi Sharma, Fertility Specialist"></div>
+      <div class="badge-float"><div class="bn">FNB · Reproductive Medicine</div><div class="bs">Board-certified specialist</div></div>
+    </div>
+  </div>
+</header>
+
+<section class="spine" id="credentials">
+  <div class="wrap">
+    <div class="spine-head">
+      <span class="eyebrow">Qualifications</span>
+      <p>Training built across India's leading obstetrics, gynaecology and reproductive medicine institutions.</p>
+    </div>
+    <div class="creds">
+      <div class="cred"><div class="deg">MBBS</div><div class="desc">VMMC &amp; Safdarjung Hospital, New Delhi</div></div>
+      <div class="cred"><div class="deg">MS — OBG</div><div class="desc">Obstetrics &amp; Gynaecology, Safdarjung Hospital</div></div>
+      <div class="cred"><div class="deg">DNB — OBG</div><div class="desc">Obstetrics &amp; Gynaecology</div></div>
+      <div class="cred"><div class="deg">FNB</div><div class="desc">Reproductive Medicine, Women Center by Motherhood</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block about" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">About</span>
+      <h2>Advanced reproductive medicine, delivered with warmth.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>Dr. Shivangi Sharma brings advanced expertise in <strong>reproductive medicine and assisted fertility treatments</strong>, with specialised training in IVF and evidence-based fertility care.</p>
+        <p>She holds an MBBS and MS in Obstetrics &amp; Gynaecology from VMMC &amp; Safdarjung Hospital, followed by a DNB in Obstetrics &amp; Gynaecology and an FNB in Reproductive Medicine from Women Center by Motherhood Hospital.</p>
+        <p>Dr. Shivangi combines <strong>clinical precision with compassionate care</strong>, helping couples navigate their fertility journey with confidence and clarity.</p>
+      </div>
+      <div class="path">
+        <div class="path-item"><div class="yr">2012 – 2017</div><div class="role">MBBS</div><div class="org">VMMC &amp; Safdarjung Hospital, New Delhi</div></div>
+        <div class="path-item"><div class="yr">2018 – 2021</div><div class="role">MS — Obstetrics &amp; Gynaecology</div><div class="org">Safdarjung Hospital, New Delhi</div></div>
+        <div class="path-item"><div class="yr">2022 – 2024</div><div class="role">FNB — Reproductive Medicine</div><div class="org">Women Center by Motherhood</div></div>
+        <div class="path-item"><div class="yr">2024 – 2026</div><div class="role">Associate Consultant</div><div class="org">Cloudnine Hospital, Faridabad</div></div>
+        <div class="path-item"><div class="yr">2026 – Present</div><div class="role">Consultant Fertility Specialist</div><div class="org">Oasis Fertility, Banashankari, Bangalore</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block genetics" id="genetics">
+  <div class="wrap">
+    <div class="gen-grid">
+      <div>
+        <span class="gen-tag">Specialised training · ICMR, Mumbai</span>
+        <h2>Genetics-informed care, from <em>before conception onward</em>.</h2>
+        <p>Beyond fertility treatment, Dr. Shivangi has completed specialised training in medical genetics from ICMR, Mumbai — covering the full reproductive arc. Risk is understood early, screening is purposeful, and families are guided with clarity at every stage.</p>
+      </div>
+      <div class="gen-stages">
+        <div class="gen-stage"><span class="badge">Stage 01</span><div class="st">Preconception</div><div class="sd">Genetic risk assessment and counselling before pregnancy, so couples plan with the fullest picture.</div></div>
+        <div class="gen-stage"><span class="badge">Stage 02</span><div class="st">Antenatal</div><div class="sd">Genetics-informed screening and monitoring through pregnancy to safeguard mother and baby.</div></div>
+        <div class="gen-stage"><span class="badge">Stage 03</span><div class="st">Postnatal</div><div class="sd">Continued guidance after birth, supporting healthy outcomes for the newborn.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="expertise">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Clinical Expertise</span>
+      <h2>The full pathway of assisted reproduction.</h2>
+      <p>From the first stimulation cycle to embryo transfer and diagnostic procedures — handled with evidence-based protocols.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5"/></svg></div><h3>Ovarian Stimulation</h3><p>Controlled ovarian stimulation protocols tailored to each patient's response.</p></div>
+      <div class="exp-card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Follicular Monitoring</h3><p>Precise tracking of follicle development to time interventions accurately.</p></div>
+      <div class="exp-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12s3-6 8-6 8 6 8 6-3 6-8 6-8-6-8-6z"/></svg></div><h3>Endometrial Preparation</h3><p>Optimising the uterine lining to give each transfer the best chance of implantation.</p></div>
+      <div class="exp-card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 9v6M9 12h6"/></svg></div><h3>Ovum Pick-Up (OPU)</h3><p>Safe, ultrasound-guided egg retrieval as a core step of the IVF cycle.</p></div>
+      <div class="exp-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div><h3>IVF / ICSI &amp; FET</h3><p>In-vitro fertilisation, intracytoplasmic sperm injection, and frozen embryo transfer.</p></div>
+      <div class="exp-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h6l2-4 4 8 2-4h4"/></svg></div><h3>Hysteroscopy</h3><p>Diagnostic and operative hysteroscopy to evaluate and treat uterine conditions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block care" id="contact">
+  <div class="wrap care-grid">
+    <div>
+      <span class="eyebrow">Get in touch</span>
+      <h2>Begin your fertility journey with <em>someone who listens</em>.</h2>
+      <p>Every path to parenthood is different. Book a consultation to talk through your situation, your options, and the next clear step.</p>
+    </div>
+    <div class="contact-card">
+      <h3>Consultations</h3>
+      <div class="ci"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="k">Clinic</div><div class="v">Oasis Fertility, Banashankari, Bangalore</div></div></div>
+      <div class="ci"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8.1 9.6a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.5c.9.3 1.8.6 2.7.7a2 2 0 011.9 2.1z"/></svg><div><div class="k">Appointments</div><div class="v"><a href="tel:+918867062200">+91 88670 62200</a></div></div></div>
+      <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 7l8 6 8-6"/></svg><div><div class="k">Email</div><div class="v"><a href="mailto:hello@drshivangi.com">hello@drshivangi.com</a></div></div></div>
+      <a href="tel:+918867062200" class="btn btn-primary">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Dr. Shivangi <span>Sharma</span></div>
+        <p>Board-certified Fertility Specialist · Reproductive Medicine, Bangalore.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#about">About</a>
+        <a href="#genetics">Genetics &amp; ICMR Training</a>
+        <a href="#expertise">Clinical Expertise</a>
+        <a href="#contact">Book a Consultation</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Dr. Shivangi Sharma. All rights reserved.</span>
+      <span>Built with care on <a href="https://kado.care">Kado</a></span>
+    </div>
+  </div>
+</footer>
+<div class="disclaim">This website is for general information about Dr. Shivangi Sharma's practice and does not constitute medical advice. Please consult directly for guidance on your individual situation.</div>
+
+</body>
+</html>
