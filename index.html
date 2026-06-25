@@ -9,22 +9,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* ── EXISTING DESIGN SYSTEM (unchanged) ── */
   :root{
-    --ink:#3a2f44;
-    --ink-soft:#6c627a;
-    --paper:#fffdfb;
-    --lilac:#e9defc;
-    --lilac-deep:#9b7fd4;
-    --blush:#ffe1ec;
-    --blush-deep:#f4a8c6;
-    --mint:#d6f3e8;
-    --mint-deep:#5fc6a3;
-    --sky:#d9ecff;
-    --sky-deep:#7bb8f0;
-    --butter:#fff2cc;
-    --plum:#6d4d8f;
-    --line:#efe7f3;
-    --maxw:1160px;
+    --ink:#3a2f44;--ink-soft:#6c627a;--paper:#fffdfb;
+    --lilac:#e9defc;--lilac-deep:#9b7fd4;
+    --blush:#ffe1ec;--blush-deep:#f4a8c6;
+    --mint:#d6f3e8;--mint-deep:#5fc6a3;
+    --sky:#d9ecff;--sky-deep:#7bb8f0;
+    --butter:#fff2cc;--plum:#6d4d8f;
+    --line:#efe7f3;--maxw:1160px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -37,23 +30,19 @@
   /* NAV */
   nav{position:sticky;top:0;z-index:50;background:rgba(255,253,251,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
-  .brand{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600}
+  .brand{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;text-decoration:none}
   .brand span{color:var(--blush-deep)}
-  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links{display:flex;gap:28px;align-items:center}
   .nav-links a{font-size:.9rem;color:var(--ink-soft);text-decoration:none;transition:color .2s}
   .nav-links a:hover{color:var(--ink)}
-  .nav-cta{background:linear-gradient(120deg,var(--blush-deep),var(--lilac-deep));color:#fff;padding:11px 22px;border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 18px -8px rgba(155,127,212,.7)}
+  .nav-cta{background:linear-gradient(120deg,var(--blush-deep),var(--lilac-deep));color:#fff!important;padding:11px 22px;border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 18px -8px rgba(155,127,212,.7);cursor:pointer;border:none;font-family:'Inter',sans-serif}
   .nav-cta:hover{transform:translateY(-1px);box-shadow:0 10px 24px -8px rgba(155,127,212,.8)}
+  .nav-sub{background:transparent;color:var(--plum)!important;padding:9px 18px;border-radius:999px;font-size:.85rem;font-weight:600;cursor:pointer;border:1.5px solid var(--lilac-deep);font-family:'Inter',sans-serif;transition:all .2s}
+  .nav-sub:hover{background:var(--lilac)}
   .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}
 
   /* HERO */
-  .hero{position:relative;overflow:hidden;padding:80px 0 76px;
-    background:
-      radial-gradient(60% 70% at 88% 8%, var(--blush) 0%, transparent 55%),
-      radial-gradient(55% 65% at 6% 90%, var(--mint) 0%, transparent 55%),
-      radial-gradient(50% 60% at 50% 50%, var(--lilac) 0%, transparent 70%),
-      var(--paper);
-  }
+  .hero{position:relative;overflow:hidden;padding:80px 0 76px;background:radial-gradient(60% 70% at 88% 8%,var(--blush) 0%,transparent 55%),radial-gradient(55% 65% at 6% 90%,var(--mint) 0%,transparent 55%),radial-gradient(50% 60% at 50% 50%,var(--lilac) 0%,transparent 70%),var(--paper)}
   .blob{position:absolute;border-radius:50%;filter:blur(8px);opacity:.5;z-index:0}
   .blob.b1{width:240px;height:240px;background:var(--sky);top:-60px;right:18%}
   .blob.b2{width:180px;height:180px;background:var(--butter);bottom:-40px;left:30%}
@@ -69,13 +58,13 @@
   .pill.p2{background:var(--mint)}.pill.p2 .num{color:var(--mint-deep)}
   .pill.p3{background:var(--sky)}.pill.p3 .num{color:var(--sky-deep)}
   .hero-actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
-  .btn{padding:14px 28px;border-radius:999px;font-size:.92rem;font-weight:600;text-decoration:none;display:inline-block;transition:all .2s}
+  .btn{padding:14px 28px;border-radius:999px;font-size:.92rem;font-weight:600;text-decoration:none;display:inline-block;transition:all .2s;border:none;cursor:pointer;font-family:'Inter',sans-serif}
   .btn-primary{background:linear-gradient(120deg,var(--blush-deep),var(--lilac-deep));color:#fff;box-shadow:0 8px 22px -10px rgba(155,127,212,.8)}
   .btn-primary:hover{transform:translateY(-2px)}
-  .btn-ghost{border:1.5px solid var(--lilac-deep);color:var(--plum)}
+  .btn-ghost{border:1.5px solid var(--lilac-deep);color:var(--plum);background:transparent}
   .btn-ghost:hover{background:var(--lilac)}
 
-  /* portrait */
+  /* PORTRAIT */
   .portrait-wrap{position:relative;display:flex;justify-content:center}
   .portrait-ring{position:absolute;inset:-6%;border-radius:50%;background:conic-gradient(from 120deg,var(--blush),var(--lilac),var(--sky),var(--mint),var(--butter),var(--blush));filter:blur(2px);opacity:.85}
   .portrait{position:relative;width:100%;max-width:380px;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#fff;border:6px solid #fff;box-shadow:0 24px 60px -28px rgba(109,77,143,.55)}
@@ -84,7 +73,7 @@
   .badge-float .bn{font-family:'Fraunces',serif;font-size:1rem;color:var(--plum)}
   .badge-float .bs{font-size:.72rem;color:var(--ink-soft)}
 
-  /* CREDENTIAL SPINE */
+  /* SPINE */
   .spine{background:linear-gradient(120deg,var(--plum),var(--lilac-deep))}
   .spine .wrap{padding:54px 28px;color:#fff}
   .spine-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:28px}
@@ -135,12 +124,9 @@
   .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .exp-card{border-radius:18px;padding:28px;transition:all .25s;border:1px solid transparent}
   .exp-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(109,77,143,.5)}
-  .exp-card:nth-child(1){background:var(--blush)}
-  .exp-card:nth-child(2){background:var(--mint)}
-  .exp-card:nth-child(3){background:var(--sky)}
-  .exp-card:nth-child(4){background:var(--butter)}
-  .exp-card:nth-child(5){background:var(--lilac)}
-  .exp-card:nth-child(6){background:var(--blush)}
+  .exp-card:nth-child(1){background:var(--blush)}.exp-card:nth-child(2){background:var(--mint)}
+  .exp-card:nth-child(3){background:var(--sky)}.exp-card:nth-child(4){background:var(--butter)}
+  .exp-card:nth-child(5){background:var(--lilac)}.exp-card:nth-child(6){background:var(--blush)}
   .exp-card .ic{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
   .exp-card .ic svg{width:23px;height:23px;stroke:var(--plum);fill:none;stroke-width:1.7}
   .exp-card h3{font-size:1.16rem}
@@ -160,7 +146,22 @@
   .ci .k{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--blush-deep)}
   .ci .v{font-size:.98rem}
   .ci .v a{text-decoration:none}
-  .contact-card .btn-primary{width:100%;text-align:center;margin-top:22px}
+  .contact-card .book-btn{width:100%;text-align:center;margin-top:22px;display:block}
+
+  /* ── NEW: SUBSCRIBE SECTION ── */
+  .sub-section{padding:80px 0;background:linear-gradient(135deg,var(--plum),var(--lilac-deep))}
+  .sub-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .sub-left .eyebrow{color:#f0e6ff}
+  .sub-left h2{font-size:clamp(1.9rem,3.2vw,2.6rem);color:#fff;margin-top:14px}
+  .sub-left h2 em{font-style:italic;color:var(--blush-deep)}
+  .sub-left p{color:#dcd0ef;font-size:1.02rem;margin-top:16px;line-height:1.7}
+  .sub-cards{display:grid;gap:14px}
+  .sub-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:20px 22px;backdrop-filter:blur(4px)}
+  .sub-card-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .sub-card-icon{font-size:1.3rem}
+  .sub-card-label{font-family:'Fraunces',serif;font-size:1.05rem;color:#fff}
+  .sub-card-desc{font-size:.86rem;color:#dcd0ef;line-height:1.6}
+  .sub-left .sub-btn{margin-top:28px;display:inline-block}
 
   footer{background:var(--plum);color:#ece2fb;padding:48px 0 30px}
   .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;align-items:flex-start}
@@ -168,27 +169,122 @@
   .foot-brand span{color:var(--blush-deep)}
   footer p{font-size:.88rem;max-width:38ch;margin-top:10px;color:#dcd0ef}
   .foot-links{display:flex;flex-direction:column;gap:8px}
-  .foot-links a{font-size:.9rem;text-decoration:none;color:#ece2fb;transition:color .2s}
-  .foot-links a:hover{color:#fff}
+  .foot-links a,.foot-links button{font-size:.9rem;text-decoration:none;color:#ece2fb;transition:color .2s;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;padding:0;text-align:left}
+  .foot-links a:hover,.foot-links button:hover{color:#fff}
   .foot-bottom{margin-top:38px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.8rem;color:#c4b4dc}
   .foot-bottom a{color:#fff;text-decoration:none}
   .disclaim{font-size:.78rem;color:var(--ink-soft);text-align:center;padding:18px;background:var(--paper);border-top:1px solid var(--line)}
 
+  /* ── NEW: MODAL SYSTEM ── */
+  .modal-backdrop{display:none;position:fixed;inset:0;background:rgba(58,47,68,.58);backdrop-filter:blur(6px);z-index:200;align-items:center;justify-content:center;padding:20px}
+  .modal-backdrop.open{display:flex}
+  .modal-box{background:var(--paper);border-radius:22px;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;box-shadow:0 32px 80px -20px rgba(109,77,143,.45);position:relative}
+  .modal-header{padding:28px 30px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;gap:12px;position:sticky;top:0;background:var(--paper);border-radius:22px 22px 0 0;z-index:1}
+  .modal-title{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:500;line-height:1.15}
+  .modal-title em{font-style:italic;color:var(--lilac-deep)}
+  .modal-subtitle{font-size:.84rem;color:var(--ink-soft);margin-top:4px}
+  .modal-close{background:var(--lilac);border:none;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:16px;color:var(--plum);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+  .modal-close:hover{background:var(--blush)}
+  .modal-body{padding:24px 30px}
+  .modal-footer{padding:14px 30px 26px;display:flex;gap:10px;justify-content:flex-end;border-top:1px solid var(--line)}
+
+  /* Progress bar */
+  .modal-progress{display:flex;gap:6px;margin-bottom:24px}
+  .modal-progress span{flex:1;height:3px;border-radius:2px;background:var(--line);transition:background .3s}
+  .modal-progress span.done{background:var(--lilac-deep)}
+  .modal-progress span.active{background:var(--blush-deep)}
+
+  /* Appointment type cards */
+  .appt-types{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+  .type-card{border:2px solid var(--line);border-radius:16px;padding:22px 16px;cursor:pointer;transition:all .2s;text-align:center}
+  .type-card:hover{border-color:var(--lilac-deep);background:var(--lilac)}
+  .type-card.selected{border-color:var(--lilac-deep);background:var(--lilac)}
+  .type-card .tc-icon{font-size:2rem;margin-bottom:10px}
+  .type-card .tc-label{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--ink)}
+  .type-card .tc-desc{font-size:.8rem;color:var(--ink-soft);margin-top:4px}
+
+  /* Clinic info */
+  .clinic-info{background:var(--mint);border-radius:13px;padding:14px 17px;display:flex;gap:12px;margin-bottom:18px;font-size:.9rem}
+  .clinic-info svg{width:20px;height:20px;stroke:var(--mint-deep);fill:none;stroke-width:1.7;flex-shrink:0;margin-top:2px}
+  .clinic-info strong{display:block;color:var(--ink);margin-bottom:2px;font-size:.92rem}
+  .clinic-info span{color:var(--ink-soft);line-height:1.5;font-size:.86rem}
+
+  /* Fields */
+  .field{margin-bottom:15px}
+  .field label{display:block;font-size:.73rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+  .field input,.field textarea{width:100%;padding:11px 14px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:.93rem;color:var(--ink);background:#fff;outline:none;transition:border-color .2s}
+  .field input:focus,.field textarea:focus{border-color:var(--lilac-deep)}
+  .field textarea{resize:vertical;min-height:72px}
+
+  /* Date scroll */
+  .date-scroll-wrap{overflow-x:auto;padding:4px 0 8px;margin-bottom:18px;scrollbar-width:none}
+  .date-scroll-wrap::-webkit-scrollbar{display:none}
+  .date-scroll{display:flex;gap:8px;width:max-content;padding-bottom:2px}
+  .date-chip{display:flex;flex-direction:column;align-items:center;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;transition:all .2s;min-width:62px;background:#fff}
+  .date-chip:hover{border-color:var(--lilac-deep)}
+  .date-chip.selected{border-color:var(--lilac-deep);background:var(--lilac)}
+  .date-chip .dc-day{font-size:.68rem;text-transform:uppercase;color:var(--ink-soft);letter-spacing:.04em}
+  .date-chip .dc-num{font-family:'Fraunces',serif;font-size:1.45rem;line-height:1.1;color:var(--ink)}
+  .date-chip .dc-mon{font-size:.68rem;color:var(--ink-soft)}
+
+  /* Time slots */
+  .slot-label{font-size:.73rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+  .time-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:18px}
+  .time-chip{padding:9px 4px;border:1.5px solid var(--line);border-radius:9px;text-align:center;font-size:.8rem;cursor:pointer;transition:all .2s;background:#fff}
+  .time-chip:hover{border-color:var(--lilac-deep)}
+  .time-chip.selected{border-color:var(--lilac-deep);background:var(--lilac);color:var(--plum);font-weight:600}
+
+  /* Review block */
+  .review-block{background:var(--lilac);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .review-row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid rgba(155,127,212,.2);font-size:.9rem}
+  .review-row:last-child{border-bottom:none}
+  .review-row .rk{color:var(--ink-soft);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+  .review-row .rv{font-weight:500;text-align:right;max-width:58%}
+
+  /* Success */
+  .success-inner{text-align:center;padding:12px 0 6px}
+  .success-icon{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:2rem}
+  .si-mint{background:var(--mint)}.si-lilac{background:var(--lilac)}
+  .success-title{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:500;margin-bottom:10px}
+  .success-title em{font-style:italic;color:var(--lilac-deep)}
+  .success-body{color:var(--ink-soft);font-size:.95rem;line-height:1.65;max-width:34ch;margin:0 auto}
+  .success-note{background:var(--mint);border-radius:12px;padding:14px 18px;margin-top:20px;font-size:.86rem;color:var(--ink-soft);line-height:1.6;text-align:left}
+  .success-note strong{color:var(--ink);display:block;margin-bottom:4px}
+
+  /* Role cards */
+  .role-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 20px}
+  .role-card{border:2px solid var(--line);border-radius:14px;padding:18px 16px;cursor:pointer;transition:all .2s}
+  .role-card:hover{border-color:var(--lilac-deep)}
+  .role-card.selected{border-color:var(--lilac-deep);background:var(--lilac)}
+  .role-card .rc-head{font-weight:600;font-size:.9rem;margin-bottom:8px}
+  .role-card ul{list-style:none;padding:0}
+  .role-card li{font-size:.78rem;color:var(--ink-soft);padding:2px 0 2px 14px;position:relative;line-height:1.5}
+  .role-card li::before{content:"·";position:absolute;left:0;color:var(--lilac-deep);font-weight:700}
+
+  .sub-cta-note{font-size:.8rem;color:var(--ink-soft);text-align:center;margin-top:12px}
+
   @media(max-width:880px){
-    .hero-grid,.about-grid,.gen-grid,.care-grid{grid-template-columns:1fr;gap:42px}
+    .hero-grid,.about-grid,.gen-grid,.care-grid,.sub-inner{grid-template-columns:1fr;gap:42px}
     .creds{grid-template-columns:1fr 1fr}
     .exp-grid{grid-template-columns:1fr 1fr}
     .nav-links{display:none}
     .nav-links.open{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:var(--paper);border-bottom:1px solid var(--line);padding:18px 28px;gap:18px}
     .nav-toggle{display:block}
     .portrait-wrap{order:-1}
+    .time-grid{grid-template-columns:repeat(3,1fr)}
   }
-  @media(max-width:560px){.creds,.exp-grid{grid-template-columns:1fr}section.block{padding:60px 0}}
+  @media(max-width:560px){
+    .creds,.exp-grid{grid-template-columns:1fr}
+    section.block{padding:60px 0}
+    .appt-types,.role-cards{grid-template-columns:1fr}
+    .sub-section{padding:60px 0}
+  }
   @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="wrap nav-inner">
     <a href="#" class="brand">Dr. Shivangi <span>Sharma</span></a>
@@ -197,11 +293,13 @@
       <a href="#about">About</a>
       <a href="#genetics">Genetics</a>
       <a href="#expertise">Expertise</a>
-      <a href="#contact" class="nav-cta">Book a Consultation</a>
+      <button class="nav-sub" onclick="openSubscribe()">Newsletter</button>
+      <button class="nav-cta" onclick="openBooking()">Book a Consultation</button>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <header class="hero">
   <span class="blob b1"></span><span class="blob b2"></span>
   <div class="wrap hero-grid">
@@ -215,7 +313,7 @@
         <div class="pill p3"><span class="num">IVF·ICSI</span><span class="lbl">assisted reproduction</span></div>
       </div>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+        <button class="btn btn-primary" onclick="openBooking()">Book a Consultation</button>
         <a href="#about" class="btn btn-ghost">Read Dr. Shivangi's story</a>
       </div>
     </div>
@@ -227,6 +325,7 @@
   </div>
 </header>
 
+<!-- CREDENTIALS -->
 <section class="spine" id="credentials">
   <div class="wrap">
     <div class="spine-head">
@@ -242,6 +341,7 @@
   </div>
 </section>
 
+<!-- ABOUT -->
 <section class="block about" id="about">
   <div class="wrap">
     <div class="sec-head">
@@ -265,6 +365,7 @@
   </div>
 </section>
 
+<!-- GENETICS -->
 <section class="block genetics" id="genetics">
   <div class="wrap">
     <div class="gen-grid">
@@ -282,6 +383,7 @@
   </div>
 </section>
 
+<!-- EXPERTISE -->
 <section class="block" id="expertise">
   <div class="wrap">
     <div class="sec-head">
@@ -300,6 +402,7 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="block care" id="contact">
   <div class="wrap care-grid">
     <div>
@@ -312,11 +415,34 @@
       <div class="ci"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="k">Clinic</div><div class="v">Oasis Fertility, Banashankari, Bangalore</div></div></div>
       <div class="ci"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8.1 9.6a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.5c.9.3 1.8.6 2.7.7a2 2 0 011.9 2.1z"/></svg><div><div class="k">Appointments</div><div class="v"><a href="tel:+918867062200">+91 88670 62200</a></div></div></div>
       <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 7l8 6 8-6"/></svg><div><div class="k">Email</div><div class="v"><a href="mailto:hello@drshivangi.com">hello@drshivangi.com</a></div></div></div>
-      <a href="tel:+918867062200" class="btn btn-primary">Book a Consultation</a>
+      <button class="btn btn-primary book-btn" onclick="openBooking()">Book a Consultation</button>
     </div>
   </div>
 </section>
 
+<!-- NEWSLETTER SUBSCRIBE SECTION -->
+<section class="sub-section" id="newsletter">
+  <div class="wrap sub-inner">
+    <div class="sub-left">
+      <span class="eyebrow">Stay connected</span>
+      <h2>Fertility insights, <em>delivered to you</em>.</h2>
+      <p>Dr. Shivangi curates a monthly newsletter — real cases, evidence-based guidance, and the science behind fertility care. Tailored for patients and fellow doctors alike.</p>
+      <button class="btn btn-primary sub-btn" onclick="openSubscribe()">Subscribe to newsletter</button>
+    </div>
+    <div class="sub-cards">
+      <div class="sub-card">
+        <div class="sub-card-head"><span class="sub-card-icon">🤱</span><span class="sub-card-label">For patients</span></div>
+        <div class="sub-card-desc">Monthly fertility insights, treatment guides, what to expect at each stage of your journey, and real stories from couples like you — reviewed by Dr. Shivangi before every send.</div>
+      </div>
+      <div class="sub-card">
+        <div class="sub-card-head"><span class="sub-card-icon">🩺</span><span class="sub-card-label">For doctors</span></div>
+        <div class="sub-card-desc">2–3 interesting cases from Dr. Shivangi's practice each month, alongside reproductive medicine research highlights and clinical pearls — AI-drafted, doctor-reviewed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -328,7 +454,8 @@
         <a href="#about">About</a>
         <a href="#genetics">Genetics &amp; ICMR Training</a>
         <a href="#expertise">Clinical Expertise</a>
-        <a href="#contact">Book a Consultation</a>
+        <button onclick="openBooking()">Book a Consultation</button>
+        <button onclick="openSubscribe()">Subscribe to Newsletter</button>
       </div>
     </div>
     <div class="foot-bottom">
@@ -339,5 +466,383 @@
 </footer>
 <div class="disclaim">This website is for general information about Dr. Shivangi Sharma's practice and does not constitute medical advice. Please consult directly for guidance on your individual situation.</div>
 
+<!-- ══════════════════════════════════════════════════════════
+     BOOKING MODAL
+══════════════════════════════════════════════════════════ -->
+<div class="modal-backdrop" id="booking-modal" onclick="handleBackdropClick(event,'booking-modal')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="booking-title">Choose appointment type</div>
+        <div class="modal-subtitle" id="booking-subtitle">How would you like to meet Dr. Shivangi?</div>
+      </div>
+      <button class="modal-close" onclick="closeBooking()" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-progress" id="booking-progress"></div>
+      <div id="booking-body"></div>
+    </div>
+    <div class="modal-footer" id="booking-footer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SUBSCRIBE MODAL
+══════════════════════════════════════════════════════════ -->
+<div class="modal-backdrop" id="subscribe-modal" onclick="handleBackdropClick(event,'subscribe-modal')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="subscribe-title"></div>
+        <div class="modal-subtitle" id="subscribe-subtitle"></div>
+      </div>
+      <button class="modal-close" onclick="closeSubscribe()" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-progress" id="subscribe-progress"></div>
+      <div id="subscribe-body"></div>
+    </div>
+    <div class="modal-footer" id="subscribe-footer"></div>
+  </div>
+</div>
+
+<script>
+/* ── CONSTANTS ── */
+const CLINIC_ADDR = 'Oasis Fertility, 2nd Floor, Banashankari 2nd Stage, Bangalore – 560070';
+const TIME_SLOTS = [
+  '9:00 AM','9:30 AM','10:00 AM','10:30 AM',
+  '11:00 AM','11:30 AM','12:00 PM',
+  '2:00 PM','2:30 PM','3:00 PM',
+  '3:30 PM','4:00 PM','4:30 PM','5:00 PM'
+];
+const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+/* ── STATE ── */
+let bk = {}; // booking state
+let sb = {}; // subscribe state
+let availDates = [];
+
+function getAvailableDates() {
+  const d = [];
+  const today = new Date();
+  let i = 1;
+  while (d.length < 14) {
+    const dt = new Date(today);
+    dt.setDate(today.getDate() + i++);
+    if (dt.getDay() !== 0) d.push(dt);
+  }
+  return d;
+}
+
+function fmt(d) { return `${DAYS[d.getDay()]}, ${d.getDate()} ${MONTHS[d.getMonth()]}`; }
+
+/* ── BACKDROP CLICK ── */
+function handleBackdropClick(e, id) {
+  if (e.target.id === id) {
+    if (id === 'booking-modal') closeBooking();
+    else closeSubscribe();
+  }
+}
+
+/* ════════════════════════════════════════════════════════
+   BOOKING MODAL
+════════════════════════════════════════════════════════ */
+function openBooking() {
+  bk = { step: 1, type: null, name: '', email: '', phone: '', reason: '', date: null, time: null };
+  availDates = getAvailableDates();
+  document.getElementById('booking-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderBooking();
+}
+function closeBooking() {
+  document.getElementById('booking-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function renderBooking() {
+  const totalSteps = 4;
+  // Progress
+  let pg = '';
+  for (let i = 1; i <= totalSteps; i++) {
+    pg += `<span class="${i < bk.step ? 'done' : i === bk.step ? 'active' : ''}"></span>`;
+  }
+  document.getElementById('booking-progress').innerHTML = bk.step <= totalSteps ? pg : '';
+
+  const titles = { 1:'Choose appointment type', 2:'Your details', 3:'Pick a date & time', 4:'Review your booking' };
+  const subs   = { 1:'How would you like to meet Dr. Shivangi?', 2:'So we can send you a confirmation', 3:'Select a convenient slot', 4:'Confirm and we\'ll notify Dr. Shivangi' };
+
+  if (bk.step <= 4) {
+    document.getElementById('booking-title').textContent = titles[bk.step];
+    document.getElementById('booking-subtitle').textContent = subs[bk.step];
+  }
+
+  const body   = document.getElementById('booking-body');
+  const footer = document.getElementById('booking-footer');
+
+  /* STEP 1 — type */
+  if (bk.step === 1) {
+    body.innerHTML = `
+      <div class="appt-types">
+        <div class="type-card ${bk.type==='online'?'selected':''}" onclick="bk.type='online';renderBooking()">
+          <div class="tc-icon">💻</div>
+          <div class="tc-label">Online</div>
+          <div class="tc-desc">Video call from anywhere</div>
+        </div>
+        <div class="type-card ${bk.type==='offline'?'selected':''}" onclick="bk.type='offline';renderBooking()">
+          <div class="tc-icon">🏥</div>
+          <div class="tc-label">In-clinic</div>
+          <div class="tc-desc">Visit at Oasis Fertility</div>
+        </div>
+      </div>
+      ${bk.type==='offline' ? `
+        <div class="clinic-info">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><strong>Oasis Fertility</strong><span>2nd Floor, Banashankari 2nd Stage<br>Bangalore – 560070</span></div>
+        </div>` : ''}
+    `;
+    footer.innerHTML = `
+      <button class="btn btn-ghost" onclick="closeBooking()">Cancel</button>
+      <button class="btn btn-primary" onclick="bk.step=2;renderBooking()" ${!bk.type?'disabled style="opacity:.5;cursor:not-allowed"':''}>Continue</button>
+    `;
+  }
+
+  /* STEP 2 — details */
+  if (bk.step === 2) {
+    body.innerHTML = `
+      <div class="field"><label>Your name</label>
+        <input type="text" placeholder="e.g. Priya Sharma" value="${bk.name}" oninput="bk.name=this.value">
+      </div>
+      <div class="field"><label>Email address</label>
+        <input type="email" placeholder="priya@gmail.com" value="${bk.email}" oninput="bk.email=this.value">
+      </div>
+      <div class="field"><label>Phone number</label>
+        <input type="tel" placeholder="+91 98765 43210" value="${bk.phone}" oninput="bk.phone=this.value">
+      </div>
+      <div class="field"><label>Reason for visit <span style="text-transform:none;letter-spacing:0;font-weight:400">(optional)</span></label>
+        <textarea placeholder="Briefly describe what you'd like to discuss…" oninput="bk.reason=this.value">${bk.reason}</textarea>
+      </div>
+    `;
+    footer.innerHTML = `
+      <button class="btn btn-ghost" onclick="bk.step=1;renderBooking()">Back</button>
+      <button class="btn btn-primary" onclick="validateStep2()">Continue</button>
+    `;
+  }
+
+  /* STEP 3 — date + time */
+  if (bk.step === 3) {
+    const dChips = availDates.map((d,i) => `
+      <div class="date-chip ${bk.date&&bk.date.toDateString()===d.toDateString()?'selected':''}" onclick="bk.date=window.__dates[${i}];renderBooking()">
+        <span class="dc-day">${DAYS[d.getDay()]}</span>
+        <span class="dc-num">${d.getDate()}</span>
+        <span class="dc-mon">${MONTHS[d.getMonth()]}</span>
+      </div>`).join('');
+    const tChips = TIME_SLOTS.map(t => `
+      <div class="time-chip ${bk.time===t?'selected':''}" onclick="bk.time='${t}';renderBooking()">${t}</div>`).join('');
+    window.__dates = availDates;
+
+    body.innerHTML = `
+      <div class="slot-label">Select date</div>
+      <div class="date-scroll-wrap"><div class="date-scroll">${dChips}</div></div>
+      <div class="slot-label">Select time</div>
+      <div class="time-grid">${tChips}</div>
+    `;
+    const canNext = bk.date && bk.time;
+    footer.innerHTML = `
+      <button class="btn btn-ghost" onclick="bk.step=2;renderBooking()">Back</button>
+      <button class="btn btn-primary" onclick="bk.step=4;renderBooking()" ${!canNext?'disabled style="opacity:.5;cursor:not-allowed"':''}>Review</button>
+    `;
+  }
+
+  /* STEP 4 — review */
+  if (bk.step === 4) {
+    const typeLabel = bk.type==='online' ? 'Online — video call' : 'In-clinic · Oasis Fertility, Banashankari';
+    body.innerHTML = `
+      <div class="review-block">
+        <div class="review-row"><span class="rk">Name</span><span class="rv">${bk.name}</span></div>
+        <div class="review-row"><span class="rk">Email</span><span class="rv">${bk.email}</span></div>
+        <div class="review-row"><span class="rk">Phone</span><span class="rv">${bk.phone}</span></div>
+        <div class="review-row"><span class="rk">Appointment</span><span class="rv">${typeLabel}</span></div>
+        <div class="review-row"><span class="rk">Date</span><span class="rv">${fmt(bk.date)}</span></div>
+        <div class="review-row"><span class="rk">Time</span><span class="rv">${bk.time}</span></div>
+        ${bk.reason ? `<div class="review-row"><span class="rk">Note</span><span class="rv">${bk.reason}</span></div>` : ''}
+      </div>
+      <p style="font-size:.83rem;color:var(--ink-soft);line-height:1.6">
+        A confirmation email will be sent to <strong>${bk.email}</strong>. Dr. Shivangi will be notified and will confirm your slot.
+      </p>
+    `;
+    footer.innerHTML = `
+      <button class="btn btn-ghost" onclick="bk.step=3;renderBooking()">Back</button>
+      <button class="btn btn-primary" onclick="submitBooking()">Request appointment →</button>
+    `;
+  }
+
+  /* STEP 5 — success */
+  if (bk.step === 5) {
+    document.getElementById('booking-title').textContent = '';
+    document.getElementById('booking-subtitle').textContent = '';
+    document.getElementById('booking-progress').innerHTML = '';
+    body.innerHTML = `
+      <div class="success-inner">
+        <div class="success-icon si-mint">✓</div>
+        <div class="success-title">Appointment <em>requested!</em></div>
+        <div class="success-body">Your request has been sent to Dr. Shivangi. She'll confirm your slot shortly.</div>
+        <div class="success-note">
+          <strong>What happens next?</strong>
+          A confirmation email has been sent to <strong>${bk.email}</strong>. Dr. Shivangi has been notified at hello@drshivangi.com and will reach out to confirm your appointment. No payment is required right now — payment is taken at the time of your visit.
+        </div>
+      </div>
+    `;
+    footer.innerHTML = `<button class="btn btn-primary" onclick="closeBooking()">Done</button>`;
+  }
+}
+
+function validateStep2() {
+  if (!bk.name.trim()) { alert('Please enter your name.'); return; }
+  if (!bk.email.trim() || !bk.email.includes('@')) { alert('Please enter a valid email address.'); return; }
+  bk.step = 3;
+  renderBooking();
+}
+
+async function submitBooking() {
+  /* ── WIRE THIS UP: POST to your Railway backend ──
+  try {
+    await fetch('https://your-railway-app.up.railway.app/api/book-appointment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        doctor_id: 'drshivangi',
+        patient_name: bk.name,
+        patient_email: bk.email,
+        patient_phone: bk.phone,
+        appointment_type: bk.type,
+        appointment_date: bk.date.toISOString().split('T')[0],
+        appointment_time: bk.time,
+        reason: bk.reason
+      })
+    });
+  } catch(e) { console.error(e); } */
+  bk.step = 5;
+  renderBooking();
+}
+
+/* ════════════════════════════════════════════════════════
+   SUBSCRIBE MODAL
+════════════════════════════════════════════════════════ */
+function openSubscribe() {
+  sb = { step: 1, email: '', role: null };
+  document.getElementById('subscribe-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderSubscribe();
+}
+function closeSubscribe() {
+  document.getElementById('subscribe-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function renderSubscribe() {
+  const body   = document.getElementById('subscribe-body');
+  const footer = document.getElementById('subscribe-footer');
+
+  if (sb.step === 1) {
+    document.getElementById('subscribe-title').innerHTML = 'Stay connected with <em>Dr. Shivangi</em>';
+    document.getElementById('subscribe-subtitle').textContent = 'Choose your role to see what you\'ll receive.';
+    document.getElementById('subscribe-progress').innerHTML = '<span class="active"></span><span></span>';
+
+    body.innerHTML = `
+      <div class="field"><label>Email address</label>
+        <input type="email" placeholder="you@example.com" value="${sb.email}" oninput="sb.email=this.value;updateSubBtn()">
+      </div>
+      <div style="font-size:.73rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px">I am a…</div>
+      <div class="role-cards">
+        <div class="role-card ${sb.role==='patient'?'selected':''}" onclick="sb.role='patient';renderSubscribe()">
+          <div class="rc-head">🤱 Patient</div>
+          <ul>
+            <li>Monthly fertility insights</li>
+            <li>Treatment guides & FAQs</li>
+            <li>What to expect at each stage</li>
+            <li>Real patient journeys (anonymised)</li>
+          </ul>
+        </div>
+        <div class="role-card ${sb.role==='doctor'?'selected':''}" onclick="sb.role='doctor';renderSubscribe()">
+          <div class="rc-head">🩺 Doctor</div>
+          <ul>
+            <li>2–3 interesting cases/month</li>
+            <li>Reproductive medicine research</li>
+            <li>Clinical pearls & protocols</li>
+            <li>Evidence-based practice updates</li>
+          </ul>
+        </div>
+      </div>
+      <p class="sub-cta-note">Free. Unsubscribe anytime.</p>
+    `;
+    const canSub = sb.email && sb.email.includes('@') && sb.role;
+    footer.innerHTML = `
+      <button class="btn btn-ghost" onclick="closeSubscribe()">Cancel</button>
+      <button class="btn btn-primary" id="sub-btn" onclick="submitSubscribe()" ${!canSub?'disabled style="opacity:.5;cursor:not-allowed"':''}>Subscribe</button>
+    `;
+  }
+
+  if (sb.step === 2) {
+    const roleLabel = sb.role==='patient' ? 'fertility updates and patient guides' : 'clinical cases and research highlights';
+    document.getElementById('subscribe-title').innerHTML = '';
+    document.getElementById('subscribe-subtitle').textContent = '';
+    document.getElementById('subscribe-progress').innerHTML = '<span class="done"></span><span class="active"></span>';
+
+    body.innerHTML = `
+      <div class="success-inner">
+        <div class="success-icon si-lilac">💌</div>
+        <div class="success-title">You're <em>subscribed!</em></div>
+        <div class="success-body">Dr. Shivangi will send you ${roleLabel} — thoughtfully curated for you.</div>
+        <div class="success-note">
+          <strong>What's coming your way?</strong>
+          ${sb.role==='patient'
+            ? 'Monthly emails with fertility tips, treatment explainers, and real patient journeys. Reviewed and personalised by Dr. Shivangi before every send.'
+            : 'Monthly emails with 2–3 interesting cases from Dr. Shivangi\'s practice, reproductive medicine research highlights, and clinical pearls — AI-drafted, reviewed by Dr. Shivangi.'}
+        </div>
+      </div>
+    `;
+    footer.innerHTML = `<button class="btn btn-primary" onclick="closeSubscribe()">Done</button>`;
+  }
+}
+
+function updateSubBtn() {
+  const btn = document.getElementById('sub-btn');
+  if (!btn) return;
+  const canSub = sb.email && sb.email.includes('@') && sb.role;
+  btn.disabled = !canSub;
+  btn.style.opacity = canSub ? '1' : '.5';
+  btn.style.cursor = canSub ? 'pointer' : 'not-allowed';
+}
+
+async function submitSubscribe() {
+  if (!sb.email || !sb.role) return;
+  /* ── WIRE THIS UP: POST to your Railway backend ──
+  try {
+    await fetch('https://your-railway-app.up.railway.app/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        doctor_id: 'drshivangi',
+        email: sb.email,
+        role: sb.role
+      })
+    });
+  } catch(e) { console.error(e); } */
+  sb.step = 2;
+  renderSubscribe();
+}
+
+/* ── Nav toggle (existing) ── */
+// existing inline onclick handles it
+
+/* ── Close modal on Escape ── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeBooking();
+    closeSubscribe();
+  }
+});
+</script>
 </body>
 </html>
