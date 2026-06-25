@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Dr. Shivangi Sharma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3a2f44;--ink-soft:#6c627a;--paper:#fffdfb;
+    --lilac:#e9defc;--lilac-deep:#9b7fd4;
+    --blush:#ffe1ec;--blush-deep:#f4a8c6;
+    --mint:#d6f3e8;--mint-deep:#5fc6a3;
+    --sky:#d9ecff;--sky-deep:#7bb8f0;
+    --butter:#fff2cc;--plum:#6d4d8f;
+    --line:#efe7f3;--maxw:1100px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#f4f0f9;min-height:100vh;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500}
+
+  /* LOGIN */
+  .login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--lilac),var(--blush))}
+  .login-card{background:#fff;border-radius:20px;padding:44px;width:100%;max-width:400px;box-shadow:0 24px 60px -20px rgba(109,77,143,.4);text-align:center}
+  .login-logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;color:var(--plum);margin-bottom:6px}
+  .login-logo span{color:var(--blush-deep)}
+  .login-sub{font-size:.86rem;color:var(--ink-soft);margin-bottom:30px}
+  .login-card h2{font-size:1.4rem;margin-bottom:6px}
+  .login-card p{font-size:.88rem;color:var(--ink-soft);margin-bottom:24px}
+  .field{margin-bottom:16px;text-align:left}
+  .field label{display:block;font-size:.73rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+  .field input{width:100%;padding:12px 15px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:.93rem;color:var(--ink);background:#fff;outline:none;transition:border-color .2s}
+  .field input:focus{border-color:var(--lilac-deep)}
+  .btn{padding:13px 28px;border-radius:999px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;border:none;font-family:'Inter',sans-serif}
+  .btn-primary{background:linear-gradient(120deg,var(--blush-deep),var(--lilac-deep));color:#fff;width:100%;box-shadow:0 8px 22px -10px rgba(155,127,212,.7)}
+  .btn-primary:hover{transform:translateY(-1px)}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink-soft)}
+  .btn-ghost:hover{border-color:var(--lilac-deep);color:var(--plum)}
+  .login-err{background:var(--blush);color:#c0445e;border-radius:8px;padding:10px 14px;font-size:.84rem;margin-bottom:16px;display:none}
+
+  /* DASHBOARD LAYOUT */
+  .dash-wrap{display:none}
+  .dash-nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
+  .dash-nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:66px}
+  .dash-brand{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--plum)}
+  .dash-brand span{color:var(--blush-deep)}
+  .dash-nav-right{display:flex;align-items:center;gap:14px}
+  .dash-user{font-size:.83rem;color:var(--ink-soft)}
+  .dash-logout{background:none;border:none;font-size:.83rem;color:var(--lilac-deep);cursor:pointer;font-family:'Inter',sans-serif;text-decoration:underline}
+  .dash-logout:hover{color:var(--plum)}
+  .view-site{font-size:.83rem;color:var(--plum);text-decoration:none;padding:7px 14px;border-radius:999px;border:1.5px solid var(--line);transition:all .2s}
+  .view-site:hover{background:var(--lilac)}
+
+  .dash-body{max-width:var(--maxw);margin:0 auto;padding:36px 28px}
+  .dash-header{margin-bottom:32px}
+  .dash-header h1{font-size:1.9rem;color:var(--plum)}
+  .dash-header h1 em{font-style:italic;color:var(--blush-deep)}
+  .dash-header p{color:var(--ink-soft);font-size:.92rem;margin-top:5px}
+
+  /* TABS */
+  .tabs{display:flex;gap:4px;background:#ede9f4;border-radius:12px;padding:4px;margin-bottom:28px;width:fit-content}
+  .tab{padding:9px 20px;border-radius:9px;font-size:.87rem;font-weight:600;cursor:pointer;border:none;background:transparent;font-family:'Inter',sans-serif;color:var(--ink-soft);transition:all .2s;position:relative}
+  .tab.active{background:#fff;color:var(--plum);box-shadow:0 2px 8px -2px rgba(109,77,143,.2)}
+  .tab-badge{background:var(--blush-deep);color:#fff;border-radius:999px;font-size:.68rem;padding:1px 6px;margin-left:6px;font-weight:700}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+  .stat{background:#fff;border-radius:14px;padding:20px 22px;border:1px solid var(--line)}
+  .stat-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:500;line-height:1;color:var(--ink)}
+  .stat-label{font-size:.78rem;color:var(--ink-soft);margin-top:5px}
+  .stat-sub{font-size:.75rem;margin-top:7px;font-weight:600}
+  .green{color:var(--mint-deep)}.purple{color:var(--lilac-deep)}.pink{color:var(--blush-deep)}.blue{color:var(--sky-deep)}
+
+  /* CARDS */
+  .card{background:#fff;border-radius:16px;padding:0;border:1px solid var(--line);overflow:hidden;margin-bottom:20px}
+  .card-head{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+  .card-title{font-size:1rem;font-weight:600;color:var(--ink)}
+  .card-meta{font-size:.8rem;color:var(--ink-soft)}
+
+  /* TABLE */
+  table{width:100%;border-collapse:collapse}
+  th{text-align:left;font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);padding:12px 24px;border-bottom:1px solid var(--line);background:#faf8fd}
+  td{padding:14px 24px;border-bottom:1px solid var(--line);font-size:.88rem;vertical-align:middle}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:#faf8fd}
+
+  /* PILLS */
+  .pill-sm{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.74rem;font-weight:600}
+  .ps-patient{background:var(--mint);color:#2a7a5f}
+  .ps-doctor{background:var(--lilac);color:var(--plum)}
+  .ps-online{background:var(--sky);color:#2b5c8a}
+  .ps-offline{background:var(--blush);color:#a03060}
+  .ps-new{background:var(--butter);color:#8a6a00}
+  .ps-confirmed{background:var(--mint);color:#2a7a5f}
+  .ps-pending{background:var(--butter);color:#7a5a00}
+
+  /* NOTIFICATION TOAST */
+  .toast-wrap{position:fixed;bottom:28px;right:28px;z-index:99;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+  .toast{background:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 10px 30px -8px rgba(109,77,143,.35);border:1px solid var(--line);display:flex;align-items:flex-start;gap:12px;max-width:320px;animation:slideIn .3s ease;pointer-events:all}
+  .toast-icon{font-size:1.3rem;flex-shrink:0}
+  .toast-title{font-weight:600;font-size:.88rem;color:var(--ink)}
+  .toast-body{font-size:.8rem;color:var(--ink-soft);margin-top:2px;line-height:1.4}
+  .toast-close{margin-left:auto;background:none;border:none;cursor:pointer;color:var(--ink-soft);font-size:14px;flex-shrink:0;padding:0 0 0 8px}
+  @keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+  @keyframes fadeOut{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(20px)}}
+
+  /* EMPTY */
+  .empty{text-align:center;padding:48px 24px;color:var(--ink-soft);font-size:.92rem}
+  .empty-icon{font-size:2.5rem;margin-bottom:12px;opacity:.4}
+
+  /* NOTIFICATION LIST */
+  .notif-item{padding:16px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px}
+  .notif-item:last-child{border-bottom:none}
+  .notif-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+  .nd-new{background:var(--blush-deep)}
+  .nd-read{background:var(--line)}
+  .notif-content{flex:1}
+  .notif-title{font-size:.88rem;font-weight:600;color:var(--ink)}
+  .notif-sub{font-size:.78rem;color:var(--ink-soft);margin-top:2px}
+  .notif-time{font-size:.74rem;color:var(--ink-soft);flex-shrink:0}
+
+  @media(max-width:720px){
+    .stats{grid-template-columns:1fr 1fr}
+    td:nth-child(4),th:nth-child(4){display:none}
+  }
+  @media(max-width:480px){
+    .stats{grid-template-columns:1fr 1fr}
+    .tabs{width:100%}
+    td:nth-child(3),th:nth-child(3){display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div class="login-wrap" id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">Dr. Shivangi <span>Sharma</span></div>
+    <div class="login-sub">Dashboard · Kado Care</div>
+    <h2>Sign in</h2>
+    <p>Access your appointments and subscriber list.</p>
+    <div class="login-err" id="login-err">Incorrect password. Please try again.</div>
+    <div class="field"><label>Password</label>
+      <input type="password" id="pass-input" placeholder="Enter your password" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <button class="btn btn-primary" onclick="doLogin()">Sign in</button>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dash-wrap" id="dash-wrap">
+  <nav class="dash-nav">
+    <div class="dash-nav-inner">
+      <div class="dash-brand">Dr. Shivangi <span>Sharma</span></div>
+      <div class="dash-nav-right">
+        <a href="index.html" class="view-site" target="_blank">← View website</a>
+        <span class="dash-user">hello@drshivangi.com</span>
+        <button class="dash-logout" onclick="doLogout()">Sign out</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="dash-body">
+    <div class="dash-header">
+      <h1>Good morning, <em>Dr. Shivangi</em> 👋</h1>
+      <p id="dash-date">Loading...</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats" id="stats-grid"></div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('appointments',this)">Appointments <span class="tab-badge" id="appt-badge">0</span></button>
+      <button class="tab" onclick="switchTab('subscribers',this)">Subscribers <span class="tab-badge" id="sub-badge">0</span></button>
+      <button class="tab" onclick="switchTab('notifications',this)">Notifications <span class="tab-badge" id="notif-badge">0</span></button>
+    </div>
+
+    <!-- APPOINTMENTS TAB -->
+    <div id="tab-appointments">
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Appointment Requests</div>
+          <div class="card-meta" id="appt-count-label"></div>
+        </div>
+        <div id="appt-table-wrap"></div>
+      </div>
+    </div>
+
+    <!-- SUBSCRIBERS TAB -->
+    <div id="tab-subscribers" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">All Subscribers</div>
+          <div class="card-meta" id="sub-count-label"></div>
+        </div>
+        <div id="sub-table-wrap"></div>
+      </div>
+    </div>
+
+    <!-- NOTIFICATIONS TAB -->
+    <div id="tab-notifications" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Notifications</div>
+          <div class="card-meta">Recent activity</div>
+        </div>
+        <div id="notif-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<script>
+/* ── CONFIG ── */
+const PASS = 'kado2026'; // Change this in production
+const DOCTOR_EMAIL = 'hello@drshivangi.com';
+
+/* ── MOCK DATA (replace with Supabase fetches) ── */
+let appointments = [
+  { id:1, name:'Priya Mehta', email:'priya.m@gmail.com', phone:'+91 98200 11234', type:'online', date:'26 Jun 2026', time:'10:00 AM', reason:'IVF consultation', status:'pending', created:'2 hours ago' },
+  { id:2, name:'Ananya Roy', email:'ananya.r@gmail.com', phone:'+91 97301 55432', type:'offline', date:'27 Jun 2026', time:'11:30 AM', reason:'Follicular monitoring', status:'confirmed', created:'5 hours ago' },
+  { id:3, name:'Sunita Krishnan', email:'sunita.k@gmail.com', phone:'+91 99400 76543', type:'online', date:'28 Jun 2026', time:'2:00 PM', reason:'Pre-IVF workup discussion', status:'pending', created:'1 day ago' },
+  { id:4, name:'Meera Iyer', email:'meera.i@gmail.com', phone:'+91 80123 45678', type:'offline', date:'30 Jun 2026', time:'9:30 AM', reason:'First consultation', status:'confirmed', created:'2 days ago' },
+];
+
+let subscribers = [
+  { id:1, email:'priya.m@gmail.com', role:'patient', joined:'24 Jun 2026', isNew:true },
+  { id:2, email:'dr.amit.r@gmail.com', role:'doctor', joined:'23 Jun 2026', isNew:true },
+  { id:3, email:'sunita.k@yahoo.com', role:'patient', joined:'22 Jun 2026', isNew:false },
+  { id:4, email:'dr.kavita.sharma@gmail.com', role:'doctor', joined:'20 Jun 2026', isNew:false },
+  { id:5, email:'meera.iyer@gmail.com', role:'patient', joined:'18 Jun 2026', isNew:false },
+  { id:6, email:'nandini.b@gmail.com', role:'patient', joined:'15 Jun 2026', isNew:false },
+];
+
+/* ── AUTH ── */
+function doLogin() {
+  const val = document.getElementById('pass-input').value;
+  if (val === PASS) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('dash-wrap').style.display = 'block';
+    initDashboard();
+  } else {
+    document.getElementById('login-err').style.display = 'block';
+    document.getElementById('pass-input').value = '';
+    document.getElementById('pass-input').focus();
+  }
+}
+
+function doLogout() {
+  document.getElementById('dash-wrap').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('pass-input').value = '';
+  document.getElementById('login-err').style.display = 'none';
+}
+
+/* ── INIT ── */
+function initDashboard() {
+  // Date
+  const now = new Date();
+  const hour = now.getHours();
+  const greet = hour < 12 ? 'morning' : hour < 17 ? 'afternoon' : 'evening';
+  document.querySelector('.dash-header h1').innerHTML = `Good ${greet}, <em>Dr. Shivangi</em> 👋`;
+  document.getElementById('dash-date').textContent = now.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+
+  renderStats();
+  renderAppointments();
+  renderSubscribers();
+  renderNotifications();
+  updateBadges();
+
+  // Simulate incoming notifications
+  setTimeout(() => showToast('💌', 'New subscriber!', 'dr.rajesh.k@gmail.com just subscribed as a Doctor'), 3000);
+  setTimeout(() => showToast('📅', 'New appointment request', 'Deepa Nair — Online · 2 Jul, 10:30 AM'), 7000);
+}
+
+function renderStats() {
+  const pending = appointments.filter(a => a.status === 'pending').length;
+  const patients = subscribers.filter(s => s.role === 'patient').length;
+  const doctors = subscribers.filter(s => s.role === 'doctor').length;
+  const newSubs = subscribers.filter(s => s.isNew).length;
+
+  document.getElementById('stats-grid').innerHTML = `
+    <div class="stat">
+      <div class="stat-num">${appointments.length}</div>
+      <div class="stat-label">Total appointments</div>
+      <div class="stat-sub pink">${pending} pending confirmation</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">${subscribers.length}</div>
+      <div class="stat-label">Total subscribers</div>
+      <div class="stat-sub green">↑ ${newSubs} this week</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">${patients}</div>
+      <div class="stat-label">Patient subscribers</div>
+      <div class="stat-sub blue">Fertility journey updates</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">${doctors}</div>
+      <div class="stat-label">Doctor subscribers</div>
+      <div class="stat-sub purple">Clinical newsletter</div>
+    </div>
+  `;
+}
+
+function renderAppointments() {
+  const wrap = document.getElementById('appt-table-wrap');
+  if (!appointments.length) {
+    wrap.innerHTML = `<div class="empty"><div class="empty-icon">📅</div>No appointment requests yet.</div>`;
+    return;
+  }
+  wrap.innerHTML = `
+    <table>
+      <thead><tr>
+        <th>Patient</th><th>Type</th><th>Date & Time</th><th>Reason</th><th>Status</th><th>Action</th>
+      </tr></thead>
+      <tbody>
+        ${appointments.map(a => `
+          <tr>
+            <td>
+              <div style="font-weight:600">${a.name}</div>
+              <div style="font-size:.76rem;color:var(--ink-soft)">${a.email} · ${a.phone}</div>
+            </td>
+            <td><span class="pill-sm ${a.type==='online'?'ps-online':'ps-offline'}">${a.type==='online'?'Online':'In-clinic'}</span></td>
+            <td>
+              <div style="font-weight:500">${a.date}</div>
+              <div style="font-size:.78rem;color:var(--ink-soft)">${a.time}</div>
+            </td>
+            <td style="color:var(--ink-soft);max-width:180px">${a.reason||'—'}</td>
+            <td><span class="pill-sm ${a.status==='confirmed'?'ps-confirmed':'ps-pending'}">${a.status}</span></td>
+            <td>
+              ${a.status==='pending'
+                ? `<button class="btn btn-ghost" style="padding:6px 14px;font-size:.78rem" onclick="confirmAppt(${a.id})">Confirm</button>`
+                : `<span style="font-size:.78rem;color:var(--ink-soft)">✓ Confirmed</span>`}
+            </td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+  document.getElementById('appt-count-label').textContent = `${appointments.length} total · ${appointments.filter(a=>a.status==='pending').length} pending`;
+}
+
+function renderSubscribers() {
+  const wrap = document.getElementById('sub-table-wrap');
+  if (!subscribers.length) {
+    wrap.innerHTML = `<div class="empty"><div class="empty-icon">💌</div>No subscribers yet.</div>`;
+    return;
+  }
+  wrap.innerHTML = `
+    <table>
+      <thead><tr>
+        <th>Email</th><th>Role</th><th>Joined</th><th>Status</th>
+      </tr></thead>
+      <tbody>
+        ${subscribers.map(s => `
+          <tr>
+            <td style="font-weight:500">${s.email}</td>
+            <td><span class="pill-sm ${s.role==='patient'?'ps-patient':'ps-doctor'}">${s.role==='patient'?'Patient':'Doctor'}</span></td>
+            <td style="color:var(--ink-soft)">${s.joined}</td>
+            <td>${s.isNew ? '<span class="pill-sm ps-new">New</span>' : '<span style="font-size:.76rem;color:var(--ink-soft)">Active</span>'}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+  document.getElementById('sub-count-label').textContent = `${subscribers.filter(s=>s.role==='patient').length} patients · ${subscribers.filter(s=>s.role==='doctor').length} doctors`;
+}
+
+function renderNotifications() {
+  const notifs = [
+    { icon:'💌', title:'New subscriber: dr.amit.r@gmail.com', sub:'Subscribed as Doctor', time:'23 Jun, 4:12 PM', isNew:true },
+    { icon:'💌', title:'New subscriber: priya.m@gmail.com', sub:'Subscribed as Patient', time:'24 Jun, 11:30 AM', isNew:true },
+    { icon:'📅', title:'New appointment: Ananya Roy', sub:'In-clinic · 27 Jun · 11:30 AM', time:'24 Jun, 9:00 AM', isNew:false },
+    { icon:'📅', title:'Appointment confirmed: Meera Iyer', sub:'You confirmed in-clinic on 30 Jun', time:'22 Jun, 2:45 PM', isNew:false },
+    { icon:'💌', title:'New subscriber: sunita.k@yahoo.com', sub:'Subscribed as Patient', time:'22 Jun, 10:15 AM', isNew:false },
+  ];
+  document.getElementById('notif-list').innerHTML = notifs.map(n => `
+    <div class="notif-item">
+      <div class="notif-dot ${n.isNew?'nd-new':'nd-read'}"></div>
+      <span style="font-size:1.3rem">${n.icon}</span>
+      <div class="notif-content">
+        <div class="notif-title">${n.title}</div>
+        <div class="notif-sub">${n.sub}</div>
+      </div>
+      <div class="notif-time">${n.time}</div>
+    </div>
+  `).join('');
+}
+
+function updateBadges() {
+  document.getElementById('appt-badge').textContent = appointments.filter(a=>a.status==='pending').length;
+  document.getElementById('sub-badge').textContent = subscribers.length;
+  document.getElementById('notif-badge').textContent = subscribers.filter(s=>s.isNew).length;
+}
+
+/* ── CONFIRM APPOINTMENT ── */
+function confirmAppt(id) {
+  const appt = appointments.find(a => a.id === id);
+  if (!appt) return;
+  appt.status = 'confirmed';
+  renderAppointments();
+  renderStats();
+  updateBadges();
+  // TODO: POST to Railway /api/confirm-appointment → sends email to patient
+  showToast('✅', 'Appointment confirmed', `${appt.name} has been notified at ${appt.email}`);
+}
+
+/* ── TABS ── */
+function switchTab(name, el) {
+  ['appointments','subscribers','notifications'].forEach(t => {
+    document.getElementById('tab-'+t).style.display = t===name ? 'block' : 'none';
+  });
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+/* ── TOAST ── */
+function showToast(icon, title, body) {
+  const wrap = document.getElementById('toast-wrap');
+  const id = 'toast-' + Date.now();
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.id = id;
+  el.innerHTML = `
+    <span class="toast-icon">${icon}</span>
+    <div>
+      <div class="toast-title">${title}</div>
+      <div class="toast-body">${body}</div>
+    </div>
+    <button class="toast-close" onclick="dismissToast('${id}')">✕</button>
+  `;
+  wrap.appendChild(el);
+  setTimeout(() => dismissToast(id), 5000);
+}
+
+function dismissToast(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.style.animation = 'fadeOut .3s ease forwards';
+    setTimeout(() => el.remove(), 300);
+  }
+}
+</script>
+</body>
+</html>
